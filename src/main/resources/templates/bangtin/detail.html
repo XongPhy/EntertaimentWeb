@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head>
+    <meta charset="utf-8" />
+    <title>Chi Tiết</title>
+    <style>
+      #noidungchinhimg img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+      }
+      
+      .post-description {
+        border-top: solid 0.5px #e8ebee;
+        border-bottom: solid 0.5px #e8ebee;
+        padding: 16px 0;
+        margin-bottom: 20px;
+        display: flex;
+      }
+      #headerContainer {
+	    position: fixed;
+	    width: 100%;
+	    top: 0;
+	    z-index: 1000; 
+	    background-color: #ffffff;
+    
+  }
+   body {
+    padding-top: 80px; /* Adjust this value to match the height of your header */
+  }
+      
+      .card-img-top{
+			object-fit: cover;
+	  		height: 300px;
+	  		width:100%
+		}
+    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+     <link rel="icon"
+        href="https://www.freeiconspng.com/uploads/gamer-logo-png-gaming-video-man-character-2.png"
+        type="image/x-icon"   />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+  </head>
+  <body>
+    <header id="headerContainer" th:insert="layout/fragment.html :: header"></header>
+    <div class="container-fluid bg-light" style="margin-top: 70px">
+      <div class="row" style="margin: 50px;">
+        <div class="col-lg-8 bg-white" style="text-align: justify;">
+          <nav
+            style="--bs-breadcrumb-divider: '>'"
+            aria-label="breadcrumb"
+          >
+            <ol class="breadcrumb" style=" margin: 12px  4px; font-size:15px;">
+              <li class="breadcrumb-item"><a class="text-decoration-none text-danger" href="/bangtins">Game2K</a></li>
+              <li
+                class="breadcrumb-item active"
+                aria-current="page"  th:text="${bangtin.theloai.kieutheloai}"
+              >
+              </li>
+            </ol>
+          </nav>
+
+
+          <div>
+            <div
+              th:text="${bangtin.tieude}"
+              class=" border-0" style="font-weight: bold;font-size: 40px; margin: 0 0 15px;"
+            ></div>
+          </div>
+
+          <div class="post-description">
+                    <span th:text="${bangtin.theloai.kieutheloai}" class="border-0 text-danger" style="font-size: 13px;"></span>
+                    <span th:text="${bangtin.formattedCreatedAt}" class="border-0 custom-content" 
+                    style="font-size: 13px; color:#5C616F;margin: 0 5px;"></span>
+                </div>
+
+          <div>
+            <span
+              th:text="${bangtin.noidungbia}"
+              class=" border-0 custom-content" style="font-size: 17px; font-weight: 500;"
+            ></span>
+          </div>
+
+          <div id="noidungchinhimg">
+            <span
+              th:utext="${bangtin.noidungchinh}"
+              class=" border-0 m-4 " style="font-size: 17px;"
+            ></span>
+          </div>
+          
+          
+          
+        </div>
+        
+        <div class="col-lg-4" >
+  <div class="card border-0">
+    <div class="card-body">
+      
+
+      <div class="featured-news-item ">
+        <div class="card mb-3">
+          <img src="https://img.freepik.com/premium-photo/illustration-of-gaming-background-abstract-cyberpunk-style-of-gamer-wallpaper-neon-glow-light-of-scifi-fluorescent-sticks-digitally-generated-image-not-based-on-any-actual-scene-or-pattern_479694-6113.jpg?w=2000" class="card-img-top object-fit-cover" alt="Featured Banner">
+        </div>
+      </div>
+
+      <div class="featured-news-item">
+        <div class="card mb-3">
+          <img src="https://haycafe.vn/wp-content/uploads/2022/01/Hinh-nen-PUBG-dep-ngau-chat-nhat.jpg" class="card-img-top object-fit-cover" alt="Game Image 1">
+        </div>
+      </div>
+
+      <div class="featured-news-item">
+        <div class="card mb-3">
+          <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2399830/capsule_616x353.jpg?t=1699643475" class="card-img-top object-fit-cover" alt="Game Image 2">
+        </div>
+      </div>
+
+      <div class="featured-news-item">
+        <div class="card mb-3">
+          <img src="https://cdn.sforum.vn/sforum/wp-content/uploads/2023/06/cach-choi-goose-goose-duck.jpg" class="card-img-top object-fit-cover" alt="Game Image 3">
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+      </div>
+
+      
+    </div>
+    
+    
+    <footer th:insert="layout/footer.html :: footer"></footer>
+  </body>
+</html>

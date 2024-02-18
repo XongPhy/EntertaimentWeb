@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content=""
+    />
+    <meta
+      name="author"
+      content=""
+    />
+    <title>Đăng nhập</title>
+    <link
+      href="/webjars/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://www.freeiconspng.com/uploads/gamer-logo-png-gaming-video-man-character-2.png"
+      type="image/x-icon"
+    />
+
+    <style>
+      body {
+        background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+        margin: 0;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 0 20px;
+      }
+
+      .login-container {
+        text-align: center;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px #c6ffdd;
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .login-container img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin-right: 20px;
+        border-radius: 50%;
+      }
+
+      .form-signin {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .form-signin-heading {
+        margin: 20px;
+      }
+      .form-signin label {
+        display: block;
+        text-align: left;
+        margin-bottom: 10px;
+      }
+      .form-signin input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+      .form-signin button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-container">
+        <img
+          src="https://media.istockphoto.com/id/1339094198/vi/anh/ch%E1%BA%BF-%C4%91%E1%BB%99-xem-ph%C3%ADa-sau-c%E1%BB%A7a-thi%E1%BA%BFt-l%E1%BA%ADp-ch%C6%A1i-game-v%E1%BB%9Bi-m%C3%A1y-t%C3%ADnh-%C4%91%E1%BB%83-b%C3%A0n-v%C3%A0-m%C3%A0n-h%C3%ACnh-l%E1%BB%9Bn.jpg?s=612x612&w=0&k=20&c=cNZldANU8Ci8WmtKtPNYp2Ko5lWqo1Jq7qnPr7QnRY0="
+          alt="Image"
+          class="login-image"
+        />
+        <form
+          class="form-signin"
+          method="POST"
+          th:action="@{/login}"
+        >
+          <h2 class="form-signin-heading">XIN CHÀO</h2>
+          <p class="text-secondary">Đăng nhập bằng cách nhập thông tin bên dưới</p>
+          <div
+            th:if="${param.error}"
+            class="alert alert-danger"
+          >
+            Tên người dùng và mật khẩu không hợp lệ.
+          </div>
+          <div
+            th:if="${param.logout}"
+            class="alert alert-success"
+          >
+            Bạn đã được đăng xuất.
+          </div>
+          <p>
+            <label
+              for="username"
+              class="sr-only"
+            ></label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="form-control"
+              placeholder="Username"
+              required
+              autofocus
+            />
+          </p>
+          <p>
+            <label
+              for="password"
+              class="sr-only"
+            ></label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              placeholder="Password"
+              required
+            />
+          </p>
+          <a
+            class="d-block text-end text-decoration-none text-dark"
+            style="margin: 15px 0"
+            th:href="@{/forgot_password}"
+            >Quên mật khẩu</a
+          >
+          <button
+            class="btn btn-lg btn-danger btn-block"
+            type="submit"
+          >
+            Bắt đầu
+          </button>
+          <p>Bạn chưa có tài khoản?</p>
+          <a
+            class="text-decoration-none text-dark fw-bold"
+            th:href="@{/signup}"
+            >Đăng ký</a
+          >
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

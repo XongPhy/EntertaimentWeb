@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="icon"
+        href="https://www.freeiconspng.com/uploads/gamer-logo-png-gaming-video-man-character-2.png"
+        type="image/x-icon"   />
+    <link
+      rel="stylesheet"
+      th:href="@{/main/styles.css}"
+    />
+    <title>GAME ONLINE</title>
+  </head>
+  <body>
+    <header  th:insert="layout/fragment.html :: header"></header>
+	<div class="container-fluid" style="padding:0">
+	
+	<div class="action">
+      <div class="searchPx">
+        <a href="#games"><i class="bx bx-search-alt"></i></a>
+        <input type="text" id="search-input" placeholder="Search Games" />
+      </div>
+    </div>
+    <!-- *Banner* -->
+    <div
+      class="banner"
+      id="home"
+    >
+      <div class="bg">
+        <div class="content">
+          <h2>Một ngôi nhà mới cho<br />Người yêu thích trò chơi</h2>
+          <p>
+            Chào mừng bạn đến với thế giới trò chơi trực tuyến, nơi niềm vui và thử thách kết hợp để tạo ra những trải nghiệm độc đáo.
+             Game web là không gian huyền diệu nơi người chơi có thể hòa mình vào thế giới ảo hấp dẫn và khám phá những thử thách mới.
+          </p>
+        </div>
+        <img th:src="@{/images/garenafreefire2_1280x720-800-resize-removebg-preview.png}" />
+      </div>
+    </div>
+
+    <!-- *Advertisement* -->
+    <div class="layout">
+      <div
+        style="background-image: url(../images/top-game-mobile-online-mien-phi-cau-hinh-thap-de-choi-ngay-1.jpg)"
+      ></div>
+      <div style="background-image: url(../images/game-online-co-the-moi-ban-be-cung-choi-1.jpg)"></div>
+      <div style="background-image: url(../images/game-online-cho-may-cau-hinh-yeu-4.jpg)"></div>
+      <div
+        style="background-image: url(../images/download-Filthy-Animals-Heist-Simulator-daominhha1-380x218.jpg)"
+      ></div>
+      <div style="background-image: url(../images/21212122_1.jpg)"></div>
+    </div>
+
+    <!-- *Games* -->
+    <div
+      class="games"
+      id="games"
+    >
+      <h2>Những trò chơi phổ biến</h2>
+      <ul>
+        <li class="list">Tất cả</li>
+      </ul>
+      <div class="cardPx">
+        <div
+          class="card"
+          data-item="pc"
+        >
+          <img src="https://file.hstatic.net/1000026716/file/gearvn-top-game-doi-khang-hay-nhat-moi-thoi-dai-3_a1e009293c0c4b3f839dcf58bf1aada3_1024x1024.jpg" />
+          <div class="content">
+            <h4>Fighting</h4>
+            <div class="progress-line"><span></span></div>
+            <div class="info">
+              <a th:href="@{/games/fightgame}">Chơi ngay</a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="card"
+          data-item="pc"
+        >
+          <img src="../images/1955755.jpg" />
+          <div class="content">
+            <h4>Flappy Bird</h4>
+            <div class="progress-line"><span></span></div>
+            <div class="info">
+              <a th:href="@{/games/flappybird}">Chơi ngay</a>
+            </div>
+          </div>
+        </div>
+        
+        <div
+          class="card"
+          data-item="pc"
+        >
+          <img src="https://thanhnien.mediacdn.vn/uploaded/badiep/2020_05_22/42fb4fc6b75b2ae944301d1ab5f00b0a_MQVQ.png?width=500" />
+          <div class="content">
+            <h4>Pac-Man</h4>
+            <div class="progress-line"><span></span></div>
+            <div class="info">
+              <a th:href="@{/games/pacman}">Chơi ngay</a>
+            </div>
+          </div>
+        </div>
+        
+        <div
+          class="card"
+          data-item="pc"
+        >
+          <img src="https://workbetter.vn/content/images/2023/03/lam-game-ran-san-moi-bang-javavscript-63725373434.9996-1.png" />
+          <div class="content">
+            <h4>Snake</h4>
+            <div class="progress-line"><span></span></div>
+            <div class="info">
+              <a th:href="@{/games/snackgame}">Chơi ngay</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+<footer th:insert="layout/footer.html :: footer"></footer>
+    <script th:src="@{/main/index.js}"></script>
+  </body>
+</html>

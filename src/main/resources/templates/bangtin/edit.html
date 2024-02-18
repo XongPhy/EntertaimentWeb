@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Chỉnh sửa tin tức</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+    <link rel="icon" href="https://www.freeiconspng.com/uploads/gamer-logo-png-gaming-video-man-character-2.png"
+        type="image/x-icon" />
+</head>
+
+<body>
+    <header th:insert="layout/fragment.html :: header"></header>
+    <div align="center" class="container mt-5">
+        <h1>Chỉnh sửa tin tức</h1>
+        <br />
+        <form th:action="@{/bangtins/save}" th:object="${bangtin}" method="post" enctype="multipart/form-data">
+            <input type="hidden" th:field="*{id}" />
+            <div class="row">
+                
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="col-sm-2 col-form-label">Tiêu đề:</label>
+                        <input class="form-control" type="text" th:field="*{tieude}" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="col-sm-2 col-form-label">Tác giả:</label>
+                        <input class="form-control" type="text" th:field="*{tacgia}" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="col-sm-2 col-form-label">Nội dung bìa:</label>
+                        <input class="form-control" type="text" th:field="*{noidungbia}" />
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="col-sm-2 col-form-label">Thể loại:</label>
+                        <select class="form-control" th:field="*{theloai}">
+                            <option value="">Chọn thể loại</option>
+                            <option th:each="theloai : ${theloais}" th:value="${theloai.id}" th:text="${theloai.kieutheloai}"></option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="col-sm-2 col-form-label">Tạo ngày:</label>
+                        <input class="form-control" type="text" th:field="*{createdat}" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="col-sm-2 col-form-label">Chọn ảnh: </label>
+                        <input class="form-control" type="file" name="image" accept="image/png,image/jpeg" />
+                    </div>
+                </div>
+            </div>
+
+            <section >
+                <textarea id="editor" th:field="*{noidungchinh}">
+                    <p>ghi văn bản bạn muốn thêm vào</p>
+                </textarea>
+            </section>
+            <button style="margin:12px 0" type="submit" class="btn btn-primary">Lưu</button>
+        </form>
+    </div>
+    <script>
+        ClassicEditor.create(document.querySelector('#editor'), {
+            ckbox: {
+                tokenUrl: `${location.origin}/ckbox/auth`,
+                theme: 'lark',
+            },
+            toolbar: [
+                'ckbox',
+                'imageUpload',
+                '|',
+                'heading',
+                '|',
+                'undo',
+                'redo',
+                '|',
+                'bold',
+                'italic',
+                '|',
+                'blockQuote',
+                'indent',
+                'link',
+                '|',
+                'bulletedList',
+                'numberedList',
+            ],
+        }).catch((error) => {
+            console.error(error);
+        });
+    </script>
+</body>
+
+</html>
